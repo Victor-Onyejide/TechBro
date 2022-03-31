@@ -1,7 +1,14 @@
-import React, { Component }  from 'react';
+import React, { Component, useEffect }  from 'react';
 import {Routes, Link, Route} from "react-router-dom";
 
 export default function HomeScreen () {
+
+
+// useEffect ( () =>{
+
+//    url = window.location.href;
+//     console.log("PATH:" + url);
+// }, [url]);
 
     return(
 
@@ -9,7 +16,11 @@ export default function HomeScreen () {
             <section className="hero">
                 <div className="content">
                     <p className="welcome">Welcome to Triple Wealth Drvivng School</p>
-                    <p className="advice">Get free Advice on ther G1 Knowledge Test</p>
+                    <address>
+                        <a href="tel:+1-647-562-3376" className="phone">+1(647)562-3376</a>
+                        <a className="mail" href="mailto:triplewealthds@gmail.com">triplewealthds@gmail.com</a>
+
+                    </address>
                 </div>
  
             </section>
@@ -75,7 +86,7 @@ export default function HomeScreen () {
  
                         </p>
                         <p className="name">
-                            OLAYINKA OLAERE
+                            OLAYINKA OLALERE
 
                         </p>
 
@@ -88,7 +99,7 @@ export default function HomeScreen () {
             <section className="contact" id="contact"> 
 
                 <h1> CONTACT ME </h1>
-                <p className="">Get free Advice on ther G1 Knowledge Test</p>
+                <p className="">Get free Advice on the G1 Knowledge Test</p>
                 
                 <div className="contact-info">
 

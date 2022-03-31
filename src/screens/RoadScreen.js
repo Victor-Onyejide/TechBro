@@ -22,12 +22,12 @@ export default function RoadScreen () {
                               <p className="service">In/OutSide Toronto</p>
         
                               <div className="circle">
-                                  <p className="amount"> $250+</p>
+                                  <p className="amount"> $200+</p>
                                   <p className="tag">rate</p>
                               </div>
   
                               <p className="des">
-                                  Price is $250 + pickup/dropoff location 
+                                  Price is $200 + pickup/dropoff location 
                               </p>
   
                                   <a href="tel:+1-647-562-3376" className="phone">+1(647)562-3376</a>

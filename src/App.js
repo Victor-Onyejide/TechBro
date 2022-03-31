@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React, { Component }  from 'react';
+import React, { Component, useEffect, useState }  from 'react';
 
 import HomeScreen from './screens/HomeScreen';
 import InCarScreen from './screens/InCarScreen';
@@ -8,18 +8,35 @@ import {Routes, Link, Route} from "react-router-dom";
 
 import './App.css';
 
+// const [option, setOption] = useState('');
+
+
+
 function App() {
   const toggle =() => {
     const toggleButton = document.getElementsByClassName('menu')[0]
     const navbarLinks = document.getElementsByClassName('nav-links')[0]
     
-    toggleButton.addEventListener('click', () => {
-      navbarLinks.classList.toggle('active')
-    })
-  }
+      toggleButton.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active')
+      })
+    }
+
+  
+  //   function scroll (choice) {
+
+  //     setOption(choice);
+  //     console.log(choice);
+  //     console.log("CLICKED!");
+  // }
+
+//   useEffect(()=>{
+//     scroll(option);
+//  })
 
   return (
       
+    
     <div className="App">
       
         <nav >
@@ -51,8 +68,8 @@ function App() {
             
               </div>
             
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Book Now!</a></li>
+              <li><Link to="/#about"  >About </Link></li>
+              <li><Link to="/#book"  >Book Now!</Link></li>
             </ul>
 
          
@@ -69,11 +86,7 @@ function App() {
           <Route path="/lessons" element={<InCarScreen/>}/>
           <Route path="/test" element={<RoadScreen/>}/>
         </Routes>
-{/* 
-        { false && <HomeScreen/>}
-        {false && <InCarScreen />}
-        {true && <RoadScreen />} */}
-        {/* <HomeScreen/> */}
+
 
       </main>
 

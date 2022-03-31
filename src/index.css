@@ -21,18 +21,7 @@ a:hover{
   
 
 /* NAV */
-/* .sticky {
-  position: relative;
 
-} */
-/* .navbar {
-  display: flex;
-  position: sticky;
-
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-} */
 
 nav {
   position: fixed;
@@ -87,14 +76,10 @@ nav .logo img {
 
 }
 
-/* #nav-toggle {
-  position: absolute;
-  top: -100px;
-} */
+
 
 nav .menu {
   display:  none;
-  /* display: flex; */
   position: absolute;
   right:5%;
   top: 30%;
@@ -138,7 +123,6 @@ nav a {
   z-index: 1;
   margin: 0;
   background-color: white;
-  /* margin-top: 0.4rem; */
   border-radius: 0.5rem;
 }
 
@@ -146,41 +130,6 @@ nav a {
   display: block;
 }
 
-/* .menu {
-  font-size: 1.5rem;
-  margin: .5rem;
-} */
-
-
-/* .nav-links ul {
-  display: flex;
-  margin: 0;
-  padding: 0;
-} */
-/* 
-
-
-.nav-links li:hover {
-  color: #A0B0D1;
-} */
-
-/* .menu {
-  position: absolute;
-  top: .75rem;
-  right: 1rem;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-}
-
-.menu .bar {
-  height: 3px;
-  width: 100%;
-  background-color: #5873A2;
-  border-radius: 10px;
-} */
 
 /* HERO */
 
@@ -190,10 +139,13 @@ nav a {
   background: url(./asset/hero.png) no-repeat;
   background-size: cover;
   color: white;
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
 
+}
+.hero p {
+  font-weight: bold;
 }
 
 .hero .welcome {
@@ -202,6 +154,14 @@ nav a {
 
 .hero .advice {
   font-size: 2rem;
+}
+
+.hero address{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* SERVICES */
@@ -288,7 +248,6 @@ nav a {
   left: 10%;
   bottom: 10%;
 
-  /* background-color: rgb(156, 129, 129); */
   /* HERE */
 
   background: url(./asset/lesson.PNG) no-repeat;
@@ -321,7 +280,6 @@ nav a {
   color: #355fa8;
 }
 
-/* .services .incar .content-text  */
 
 /* ABOUT */
 .about {
@@ -347,9 +305,6 @@ nav a {
 .about .circle {
   background: url(./asset/profile.jpeg) no-repeat;
   background-size: cover;
-  /* background-position: center; */
-  /* color: #355fa8; */
-  /* font-weight: bold;  */
   border-radius: 50%; 
   margin-left: 42%;
   margin-right: 42%;
@@ -358,8 +313,6 @@ nav a {
 
   margin-bottom: 5%;
   
-  /* height: 100%; */
-  /* width: ; */
 
   }
 
@@ -376,15 +329,10 @@ nav a {
 }
 
 .address{
-  /* background-color: #2C3240; */
-  /* width: 500px; */
-  height: 300px;
+ height: 300px;
   line-height: 300%;
   font-size: 2rem;
 
-  /* display: flex;
-  justify-content: center;
-  align-content: center; */
 }
 
 
@@ -477,48 +425,7 @@ footer{
 /* Responsiveness */
 @media (max-width: 800px) {
 
-  /* nav .logo {
-    float: none;
-    width: auto;
-    justify-content: center;
-  }
-
-  .nav-links {
-    float: none;
-    position: fixed;
-    z-index: 9;
-    left:0;
-    right: 0;
-    top:100px;
-    bottom: 100px;
-    width: auto;
-    height: auto;
-    flex-direction: column;
-    justify-content: space-evenly;
-    overflow: hidden;
-    box-sizing: border-box;
-    transition: all .5s ease-in-out ;
-  }
-
-  nav :checked ~ .nav-links {
-		bottom: 0;
-	}
-	nav .menu {
-		display: block;
-	}
-	nav :checked ~ .menu .bar:nth-child(1) {
-		transform: translateY(10px) rotate(225deg);
-	}
-	nav :checked ~ .menu .bar:nth-child(3) {
-		transform: translateY(-10px) rotate(-225deg);
-	}
-	nav :checked ~ .menu .bar:nth-child(2) {
-		opacity: 0;
-	} */
-
-  /* nav .logo {
-    float: ;
-  } */
+ 
   
   .navbar {
     flex-direction: column;
