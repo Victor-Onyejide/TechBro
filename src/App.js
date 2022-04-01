@@ -52,7 +52,7 @@ function App() {
         
             <ul className="nav-links">
               <div className='dropdown'>
-                <li><a href="#services">Services <i class="fa fa-caret-down"></i> </a></li>
+                <li><Link to="#"  className='serv'>Services <i class="fa fa-caret-down"></i> </Link></li>
 
                 <ul className='dropdown-content'>
                   <li>
@@ -64,12 +64,10 @@ function App() {
                   </li>
 
                 </ul>
-            
-            
               </div>
-            
-              <li><Link to="/#about"  >About </Link></li>
-              <li><Link to="/#book"  >Book Now!</Link></li>
+
+              <li><Link to="/#about" className='ab' >About </Link></li>
+              <li><Link to="/#book" className='b'>Book Now!</Link></li>
             </ul>
 
          

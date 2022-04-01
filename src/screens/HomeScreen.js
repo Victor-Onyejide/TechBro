@@ -32,6 +32,7 @@ export default function HomeScreen () {
 
                 <div className="content">
                     <div className="incar">
+                        
                         <div className="image-wrapper">
                             <div className="box1">
                                 <div className="box2">
