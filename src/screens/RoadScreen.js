@@ -13,7 +13,7 @@ export default function RoadScreen () {
                   <strong>
                     <p className="text">
                         Stduent would be picked up with the car and get to use it for the road test.
-                        Then would be droped off after the test</p>
+                        Then would be dropped off after the test</p>
                   </strong>  
   
                     <div className="prices">

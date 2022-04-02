@@ -14,7 +14,7 @@ export default function InCarScreen () {
                 <strong>
                     <p className="text">Student 
                     would be picked up with the car and get to use it for lessons.
-                    Then would be droped off after lesson.</p>
+                    Then would be dropped off after lesson.</p>
                 </strong>  
 
                     <div className="prices">

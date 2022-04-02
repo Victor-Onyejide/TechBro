@@ -15,7 +15,7 @@ export default function HomeScreen () {
         <>
             <section className="hero">
                 <div className="content">
-                    <p className="welcome">Welcome to Triple Wealth Drvivng School</p>
+                    <p className="welcome">Welcome to Triple Wealth Driving School</p>
                     <address>
                         <a href="tel:+1-647-562-3376" className="phone">+1(647)562-3376</a>
                         <a className="mail" href="mailto:triplewealthds@gmail.com">triplewealthds@gmail.com</a>
