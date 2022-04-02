@@ -56,7 +56,7 @@ function App() {
 
                 <ul className='dropdown-content'>
                   <li>
-                    <Link to="/lessons">In-CarLessons</Link>
+                    <Link to="/lessons">In-Car Lessons</Link>
                   </li>
 
                   <li>
