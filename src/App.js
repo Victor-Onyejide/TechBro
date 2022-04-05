@@ -19,7 +19,7 @@ function App() {
     
       toggleButton.addEventListener('click', () => {
         navbarLinks.classList.toggle('active')
-      })
+      }, {once: true})
     }
 
   
@@ -39,7 +39,7 @@ function App() {
     
     <div className="App">
       
-        <nav >
+        <nav>
           <Link to="/" className="logo">TWD</Link> 
 
 
@@ -47,15 +47,22 @@ function App() {
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
-
           </div>
-        
+
             <ul className="nav-links">
+
               <div className='dropdown'>
-                <li><Link to="#"  className='serv'>Services <i class="fa fa-caret-down"></i> </Link></li>
+
+                
+              <li>
+                <Link to="#"  className="serv">
+                  Services  <i class="fa fa-caret-down"></i>
+                </Link>
+              </li>
 
                 <ul className='dropdown-content'>
-                  <li>
+
+.                  <li>
                     <Link to="/lessons">In-Car Lessons</Link>
                   </li>
 
@@ -64,10 +71,12 @@ function App() {
                   </li>
 
                 </ul>
-              </div>
 
-              <li><Link to="/#about" className='ab' >About </Link></li>
-              <li><Link to="/#book" className='b'>Book Now!</Link></li>
+              </div> 
+
+              <li><Link to="/#about" className="ab">About </Link></li>
+              <li><Link to="/#book" className="b">Book Now!</Link></li>
+        
             </ul>
 
          

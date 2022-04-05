@@ -56,7 +56,7 @@ nav .logo img {
   padding: 0;
   margin: 0;
   width: 60%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: end;
   align-items: center;
@@ -459,15 +459,11 @@ footer{
   }
 .nav-links.active {
   /* background-color: white; */
-  margin-top: 38.7%;
+  margin-top: 60px;
   display: flex;
   
   }
 
-nav .serv, nav .ab, nav .b{
-  background-color: white;
-  width: 435px;
-}
 
 
   .service-screen .prices{
@@ -556,13 +552,13 @@ nav .serv, nav .ab, nav .b{
 
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
 
 
   nav .nav-links.active {
     margin-top: 46%;
   }
-}
+} */
 
 
 
