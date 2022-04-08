@@ -13,6 +13,9 @@ import './App.css';
 
 
 function App() {
+
+  const [choice, setChoice] = useState('');
+
   const toggle =() => {
     const toggleButton = document.getElementsByClassName('menu')[0]
     const navbarLinks = document.getElementsByClassName('nav-links')[0]
@@ -22,17 +25,16 @@ function App() {
       }, {once: true})
     }
 
-  
-  //   function scroll (choice) {
 
-  //     setOption(choice);
-  //     console.log(choice);
-  //     console.log("CLICKED!");
-  // }
 
-//   useEffect(()=>{
-//     scroll(option);
-//  })
+    function scroll (c) {
+      const element = document.getElementById(c);
+      element.scrollIntoView();
+    }
+
+    function setAndScroll (option) {
+      scroll(option); // to scroll this is where scroll is getting the id
+    } 
 
   return (
       
@@ -62,7 +64,7 @@ function App() {
 
                 <ul className='dropdown-content'>
 
-.                  <li>
+                  <li>
                     <Link to="/lessons">In-Car Lessons</Link>
                   </li>
 
@@ -74,8 +76,8 @@ function App() {
 
               </div> 
 
-              <li><Link to="/#about" className="ab">About </Link></li>
-              <li><Link to="/#book" className="b">Book Now!</Link></li>
+              <li><Link to="/#about" className="ab" onClick={() => {setAndScroll('about') }}>About </Link></li>
+              <li><Link to="/#contact" className="b" onClick={() => {setAndScroll('contact') }}>Book Now!</Link></li>
         
             </ul>
 
