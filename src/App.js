@@ -20,9 +20,12 @@ function App() {
     const toggleButton = document.getElementsByClassName('menu')[0]
     const navbarLinks = document.getElementsByClassName('nav-links')[0]
     
-      toggleButton.addEventListener('click', () => {
-        navbarLinks.classList.toggle('active')
-      }, {once: true})
+      // toggleButton.addEventListener('click', () => {
+      //   navbarLinks.classList.toggle('active')
+      // }, {once: true})
+
+      navbarLinks.classList.toggle('active');
+
     }
 
 
@@ -32,9 +35,9 @@ function App() {
       element.scrollIntoView();
     }
 
-    function setAndScroll (option) {
-      scroll(option); // to scroll this is where scroll is getting the id
-    } 
+    // function setAndScroll (option) {
+    //   scroll(option); // to scroll this is where scroll is getting the id
+    // } 
 
   return (
       
@@ -76,8 +79,8 @@ function App() {
 
               </div> 
 
-              <li><Link to="/#about" className="ab" onClick={() => {setAndScroll('about') }}>About </Link></li>
-              <li><Link to="/#contact" className="b" onClick={() => {setAndScroll('contact') }}>Book Now!</Link></li>
+              <li><Link to="/#about" className="ab" onClick={() => {scroll('about') }}>About </Link></li>
+              <li><Link to="/#contact" className="b" onClick={() => {scroll('contact')}}>Book Now!</Link></li>
         
             </ul>
 
