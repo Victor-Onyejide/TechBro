@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "react-bootstrap"
+import { useState } from 'react'
+import { Post } from "./screen/Post";
+import {Routes, Route} from "react-router-dom";
+import { NavBar } from "./components/NavBar";
+import { Questions } from "./screen/Questions";
+import { Question } from "./screen/Question";
 
 function App() {
+  const [des, setDes] = useState('');
+  const [testCode, setTestCode] = useState ('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container >
+        <NavBar />
+        <Routes>
+          <Route path="/post" element={<Post setDes={setDes} setTestCode={setTestCode} />}/>
+          <Route path="/questions" element={<Questions />}/>
+          <Route path="/question" element={<Question des={des} testCode={testCode} />}/>
+        </Routes>
+      </Container>
+    </>
   );
 }
 

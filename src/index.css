@@ -1,13 +1,60 @@
 body {
-  margin: 0;
+  /* margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
+  background-color: #22272e;
+  color:#d3dbe4 ;
+
+}
+.mynav{
+  color:#7e8286 ;
+  font-weight: bold;
+
+}
+.mynav:active{
+  color: red;
 }
 
-code {
+.mycard {
+  width: 1000px;
+  background-color: transparent;
+  border-color: white;
+}
+
+.lang {
+  position: absolute;
+  right: 0;
+  bottom:0;
+  padding: 5px 5px;
+  background-color: #dc3545;
+  border-bottom-right-radius: 5px;
+}
+
+.code {
+  background-color: transparent;
+  /* color: black; */
+  width: 100%;
+  /* height: 600px; */
+  border-radius: 20px;
+  padding: 20px 20px;
+  border: 1px solid #d3dbe4;
+}
+
+.qbadge {
+  /* background-color: rgb(177, 6, 6);
+   */
+   right: 2%;
+   top:50%;
+}
+.copy {
+  position: absolute;
+  right: 2%;
+}
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
+
