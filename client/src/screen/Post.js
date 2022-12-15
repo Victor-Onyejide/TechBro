@@ -1,16 +1,32 @@
-import { Button, Form } from "react-bootstrap"
+import { Alert, Button, Form } from "react-bootstrap"
 import { useState } from 'react'
-export function Post({setDes, setTestCode}) {
+import axios from 'axios';
+export function Post({ setDes, setTestCode }) {
     const [author, setAuthor] = useState('');
     const [title, setTitle] = useState('');
-    const [code, setCode] = useState('');
+    const [solution, setCode] = useState('');
     const [language, setLanguage] = useState('');
     const [description, setDescription] = useState('');
-    function handleSubmit(e) {
+    const [url, setUrl] = useState('');
+    const [difficulty, setDifficulty] = useState('');
+
+    const [success, setSuccess] = useState();
+    const [error, setError] = useState('');
+    const [showMessage, setShowMessage] = useState();
+
+    async function handleSubmit(e) {
         e.preventDefault()
-        console.log(e.values)
-        setDes(description)
-        setTestCode(code)
+        setShowMessage(true);
+        try {
+            const data = await axios.post(`/api/post`, { author, title, solution, language, description, url, difficulty })
+            console.log(data.data)
+            setSuccess(true)
+        } catch (error) {
+            console.log(error)
+            setSuccess(false)
+            setError(error.message)
+
+        }
     }
     return (
         <>
@@ -19,8 +35,11 @@ export function Post({setDes, setTestCode}) {
                 <Form.Label >Author:</Form.Label>
                 <Form.Control type="text" onChange={(e) => setAuthor(e.target.value)} />
 
-                <Form.Label >Question Title:</Form.Label>
+                <Form.Label className="mt-3">Question Title:</Form.Label>
                 <Form.Control type="text" onChange={(e) => setTitle(e.target.value)} />
+
+                <Form.Label className="mt-3" >Url:</Form.Label>
+                <Form.Control type="text" onChange={(e) => setUrl(e.target.value)} />
 
                 <Form.Label className="mt-3">Description:</Form.Label>
                 <Form.Control as="textarea" onChange={(e) => setDescription(e.target.value)} rows={3} />
@@ -37,10 +56,20 @@ export function Post({setDes, setTestCode}) {
                     <option>Other</option>
                 </Form.Select>
 
+                <Form.Label className="mt-3">Difficulty:</Form.Label>
+                <Form.Select onClick={(e) => setDifficulty(e.target.value)} placeholder="asdc">
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                </Form.Select>
+
                 <Form.Label className="mt-3">Solution:</Form.Label>
                 <Form.Control as="textarea" onChange={(e) => setCode(e.target.value)} rows={30} />
                 <Button type="submit" className="mt-3" >Submit</Button>
             </Form>
+            {
+                showMessage && (success ? <Alert variant="success" className="mt-3">Submited</Alert> : <Alert variant="danger" className="mt-3">{error}</Alert>)
+            }
 
             {/* <div className="result mt-5 h-100">
                 <h1> {title}</h1>

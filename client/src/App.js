@@ -9,14 +9,15 @@ import { Question } from "./screen/Question";
 function App() {
   const [des, setDes] = useState('');
   const [testCode, setTestCode] = useState ('');
+  const [id, setID] = useState ('');
   return (
     <>
       <Container >
         <NavBar />
         <Routes>
           <Route path="/post" element={<Post setDes={setDes} setTestCode={setTestCode} />}/>
-          <Route path="/questions" element={<Questions />}/>
-          <Route path="/question" element={<Question des={des} testCode={testCode} />}/>
+          <Route path="/questions" element={<Questions setID={setID}/>}/>
+          <Route path="/question" element={<Question  id={id}/>}/>
         </Routes>
       </Container>
     </>
