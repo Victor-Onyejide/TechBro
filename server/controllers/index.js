@@ -3,7 +3,7 @@ const Post = require('../models/postModel')
 const getQuestion = async (req, res) => {
     try {
         const question = await Post.findById(req.params.id);
-        if(question) { res.json(question)} else { res.status(404).json({message: 'User Not Found'})}
+        if (question) { res.json(question) } else { res.status(404).json({ message: 'User Not Found' }) }
     } catch (error) {
         res.json(error.message)
     }
@@ -11,7 +11,7 @@ const getQuestion = async (req, res) => {
 
 const getAllContent = async (req, res) => {
     try {
-        const posts = await Post.find().sort({createdAt: -1})
+        const posts = await Post.find().sort({ createdAt: -1 })
         res.json(posts)
     } catch (error) {
         res.json(error)
@@ -59,6 +59,39 @@ const postContent = async (req, res) => {
 
 }
 
+const deletePost = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        if (post) {
+            const deletePost = await post.remove();
+            res.json({ message: 'Post Deleted', post: deletePost })
+        } else {
+            res.status(404).json({ message: 'Post Not Found' })
+        }
+
+    } catch (error) {
+
+        res.json(error.message)
+    }
+
+}
+
+const editPost = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+
+        if (post) {
+            post.author = req.body.author || post.author;
+            post.title = req.body.title || post.title;
+            post.description = req.body.description || post.description;
+            post.language = req.body.language || post.language;
+        }
+    } catch (error) {
+        res.json(error.message);
+    }
+}
+
 module.exports = {
-    postContent, getAllContent,getQuestion
+    postContent, getAllContent,
+    getQuestion, editPost, deletePost
 }
