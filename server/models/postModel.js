@@ -9,7 +9,7 @@ const postSchema = new mongoose.Schema ({
     difficulty: {type:String, reuired: true},
     url: {type:String, reuired: true}
 }, {
-    timestampes: true,
+    timestamps: true
 })
 
 const Post = mongoose.model('Post', postSchema);

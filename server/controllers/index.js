@@ -11,7 +11,7 @@ const getQuestion = async (req, res) => {
 
 const getAllContent = async (req, res) => {
     try {
-        const posts = await Post.find({})
+        const posts = await Post.find().sort({createdAt: -1})
         res.json(posts)
     } catch (error) {
         res.json(error)
