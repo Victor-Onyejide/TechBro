@@ -1,14 +1,17 @@
-import { Alert, Badge, Button } from "react-bootstrap";
+import { Alert, Badge, Button, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 export function Question({ id }) {
     const [question, setQuesiton] = useState();
     const [message, setMessage] = useState();
     const [error, setError] = useState();
+    const [loading, setLoading] = useState(true);
     async function getQuestion() {
         try {
             const question = await axios.get(`/api/${id}`);
+            setLoading(false)
             setQuesiton(question.data);
             console.log(question);
         } catch (error) {
@@ -19,7 +22,7 @@ export function Question({ id }) {
 
     async function deletePost() {
         try {
-            const deletedPost = await axios.patch(`/api/${id}`)
+            const deletedPost = await axios.delete(`/api/${id}`)
             setMessage(deletedPost.data.message)
             console.log(deletedPost.data)
         } catch (error) {
@@ -34,46 +37,55 @@ export function Question({ id }) {
         getQuestion()
     }, [])
 
-    // useEffect(()=>{
-    //     deletePost()
-    // },[deletePost])
     return (
-        <div className="my question mt-5">
-            <h1>{question?.title}</h1>
-            <p className="mt-3">
-                {question?.description}
-            </p>
-            <div className="mysolution mt-5 position-relative">
-                <h2 className="">Solution</h2>
-                <Badge bg="danger" className="qbadge position-absolute">{question?.language}</Badge>
-            </div>
-            <div className="code mt-2 position-relative">
-                <i class="copy fas fa-copy"></i>
-                <pre>
-                    <code>
-                        {question?.solution}
-                    </code>
-                </pre>
-            </div>
-            <Badge className="mt-3 mb-5" style={{ fontSize: "1rem" }}>By {question?.author}</Badge>
+        <div className="myquestion mt-5">
+            {
+                loading ? <Spinner animation="border" role="status" /> : <>
+                    <h1>{question?.title}</h1>
+                    <p className="mt-3">
+                        {question?.description}
+                    </p>
+                    <div className="mysolution mt-5 position-relative">
+                        <h2 className="">Solution</h2>
+                        <Badge bg="danger" className="qbadge position-absolute">{question?.language}</Badge>
+                    </div>
+                    <div className="code mt-2 position-relative">
+                        <i class="copy fas fa-copy"></i>
+                        <pre>
+                            <code>
+                                {question?.solution}
+                            </code>
+                        </pre>
+                    </div>
+                    <div className="position-relative ">
+                        <div className="editOrDelete mt-2" >
+                            <Link to="/question/edit">
+                                <Button variant="success">Edit</Button>
+                            </Link>
+                            <Button variant="danger" onClick={deletePost}>Delete</Button>
+                        </div>
 
-            <div className="editOrDelete mb-5" >
-                <Button variant="success">Edit</Button>
-                <Button variant="danger" onClick={deletePost}>Delete</Button>
-            </div>
-            {message &&
+                    </div>
+                    <Badge className="mt-3 mb-5" style={{ fontSize: "1rem" }}>By {question?.author}</Badge>
 
-                <div>
-                    <Alert variant="success">{message}</Alert>
-                </div>
+
+                    {message &&
+
+                        <div>
+                            <Alert variant="success">{message}</Alert>
+                        </div>
+                    }
+
+                    {error &&
+
+                        <div>
+                            <Alert variant="danger">{message}</Alert>
+                        </div>
+                    }
+
+                </>
             }
 
-            {error &&
-
-                <div>
-                    <Alert variant="danger">{message}</Alert>
-                </div>
-            }
 
         </div>
     )

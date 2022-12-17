@@ -1,40 +1,41 @@
 import { QuestionCard } from "../components/QuestionCard";
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 
-export function Questions({setID}) {
-    const[questions, setQuesitons] = useState([]);
+export function Questions({ setID }) {
+    const [questions, setQuesitons] = useState([]);
+    const [loading, setLoading] = useState(true);
 
 
-    async function getAllQuestions () {
+    async function getAllQuestions() {
         try {
             const data = await axios.get('/api/allposts');
-            console.log(data.data)
             setQuesitons(data.data)
-            console.log(questions)
-    
+            setLoading(false);
+
         } catch (error) {
             console.log(error)
         }
     }
 
-    // const listQuestions = questions.map()
 
     useEffect(() => {
         getAllQuestions();
     }, [])
 
-    const listQuestions = questions.map((question)=><QuestionCard
-    difficulty={question.difficulty} language={question.language}
-     author= {question.author} _id ={question._id}
-      title= {question.title} description = {question.description}
-      setID= {setID}
+    const listQuestions = questions.map((question) => <QuestionCard
+        difficulty={question.difficulty} language={question.language}
+        author={question.author} _id={question._id}
+        title={question.title} description={question.description}
+        setID={setID}
     />)
     return (
         <>
             <h1 className="mt-5 mb-3">Leet Code Programming Solutions</h1>
             {
-                listQuestions
+                loading ? <Spinner animation="border" role="status" /> :
+                    listQuestions
             }
 
 

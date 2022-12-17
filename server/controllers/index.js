@@ -85,6 +85,9 @@ const editPost = async (req, res) => {
             post.title = req.body.title || post.title;
             post.description = req.body.description || post.description;
             post.language = req.body.language || post.language;
+
+            const updatedPost = await post.save();
+            res.send({message: 'Post Updated', user: updatedPost});
         }
     } catch (error) {
         res.json(error.message);

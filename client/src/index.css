@@ -68,6 +68,12 @@ body {
   position: absolute;
   right:10px;
 }
+
+.myquestion .editOrDelete {
+  position: absolute;
+  right: 0;
+}
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
