@@ -94,7 +94,18 @@ const editPost = async (req, res) => {
     }
 }
 
+const findQuestion = async (req,res) => {
+    try {
+        const question = await Post.find({title:req.body.title})
+        res.json(question)
+    } catch (error) {
+        res.json(error)
+        
+    }
+} 
+
 module.exports = {
     postContent, getAllContent,
-    getQuestion, editPost, deletePost
+    getQuestion, editPost, deletePost,
+    findQuestion
 }
