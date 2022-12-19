@@ -18,7 +18,9 @@ export function Post({ setDes, setTestCode }) {
         e.preventDefault()
         setShowMessage(true);
         try {
-            const data = await axios.post(`/api/post`, { author, title, solution, language, description, url, difficulty })
+            const data = await axios.post(`/api/post`, { author, 
+                title, solution, language, description,
+                 url, difficulty })
             console.log(data.data)
             setSuccess(true)
         } catch (error) {

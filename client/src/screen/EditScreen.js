@@ -54,7 +54,7 @@ export function EditScreen({ id }) {
             <h1 className="mt-5">Edit Mock Interview Session</h1>
             <Form className="h-100 mt-1" onSubmit={handleSubmit}>
                 <Form.Label >Author:</Form.Label>
-                <Form.Control type="text" placeholder={question.author} onChange={(e) => setAuthor(e.target.value)} />
+                <Form.Control type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
 
                 <Form.Label className="mt-3">Question Title:</Form.Label>
                 <Form.Control type="text" placeholder={question.title} onChange={(e) => setTitle(e.target.value)} />
