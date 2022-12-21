@@ -11,9 +11,7 @@ body {
 
 }
 
-.mynav:active {
-  color: red;
-}
+/*  */
 
 .mycard {
   width: 1000px;
@@ -91,7 +89,7 @@ body {
 }
 .questions .filter
 {
-  width: 200px;
+  width: 300px;
 }
 
 .questions .filter .wrapper {

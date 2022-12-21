@@ -96,7 +96,7 @@ const editPost = async (req, res) => {
 
 const findQuestion = async (req,res) => {
     try {
-        const question = await Post.find({title:req.body.title})
+        const question = await Post.find({title:req.body.searcnInput})
         res.json(question)
     } catch (error) {
         res.json(error)
