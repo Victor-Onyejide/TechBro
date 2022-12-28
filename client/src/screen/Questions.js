@@ -37,9 +37,9 @@ export function Questions({ setID }) {
     const getsearch = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get('/api/allposts/search', { searcnInput });
+            const { data } = await axios.post('/api/allposts/search', {searcnInput });
             setLoading(false);
-            setSearchOutPut(data.data);
+            setSearchOutPut(data);
             setShowSearch(true);
 
             //Test
@@ -75,32 +75,6 @@ export function Questions({ setID }) {
             </div>
             <div style={{ float: 'right' }} className="filter">
                 <div className="wrapper mt-2">
-                    {/* <Dropdown.Menu className="difficultyBtn" onChange={(e) => setTest(e.target.value)} >
-                        <Dropdown.Header>Difficulty</Dropdown.Header>
-                        <Dropdown.Item>Easy</Dropdown.Item>
-                        <Dropdown.Item>Medium</Dropdown.Item>
-                        <Dropdown.Item>Hard</Dropdown.Item>
-                    </Dropdown.Menu> */}
-
-                    {/* <Dropdown className="d-inline mx-2" >
-                        <Dropdown.Toggle id="dropdown-autoclose-true">
-                            Default Dropdown
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu  onSelect={handleSelect}>
-                            <Dropdown.Item href="#" >Menu Item</Dropdown.Item>
-                            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown> */}
-
-                    {/* 
-                    <DropdownButton title='Language' className="language" >
-                        <Dropdown.Item eventKey="option-1">Python</Dropdown.Item>
-                        <Dropdown.Item eventKey="option-2">Javascript</Dropdown.Item>
-                        <Dropdown.Item eventKey="option-3">C++</Dropdown.Item>
-                    </DropdownButton> */}
-
                     <Dropdown onSelect={(e) => setTest(e)}>
                         <Dropdown.Toggle>
                         Difficulty

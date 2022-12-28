@@ -94,14 +94,23 @@ const editPost = async (req, res) => {
     }
 }
 
-const findQuestion = async (req,res) => {
-    try {
-        const question = await Post.find({title:req.body.searcnInput})
-        res.send({message:"found", data:question})
-    } catch (error) {
-        res.json(error)
-        
-    }
+const findQuestion =  (req,res) => {
+    // try {
+    //     const question = await Post.find({title:req.body.searcnInput})
+    //     res.json(question)
+    // } catch (error) {
+    //     res.json(error)
+    // }
+    Post.find({title: req.body.searcnInput}, function (err, docs) {
+        if(err){
+            res.json(err)
+        }
+        else{
+            res.json(docs)
+        }
+    });
+
+    
 } 
 
 module.exports = {

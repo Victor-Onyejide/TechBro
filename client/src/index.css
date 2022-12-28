@@ -71,7 +71,8 @@ body {
 }
 
 .questions .searchItems input[type=text] {
-  width: 600px;
+  width: 400px;
+  /* width: 100%; */
 
 }
 

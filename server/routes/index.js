@@ -6,6 +6,6 @@ const { postContent, getAllContent, getQuestion, editPost, deletePost, findQuest
 router.route('/post').post(postContent);
 router.route('/allposts').get(getAllContent);
 router.route('/:id').get(getQuestion).patch(editPost).delete(deletePost);
-router.route('/allposts/search').get(findQuestion);
+router.route('/allposts/search').post(findQuestion);
 
 module.exports = router; 
