@@ -7,10 +7,11 @@ import SearchBar from "../components/SearchBar";
 export function Questions({ setID }) {
     const [questions, setQuesitons] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [test, setTest] = useState('test');
     const [searcnInput, setSearchInput] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const [searchOutPut, setSearchOutPut] = useState([]);
+    const [filterDiff, setFilterDiff] = useState();
+    const [filterLang, setFilterLang] = useState();
 
 
     async function getAllQuestions() {
@@ -26,7 +27,7 @@ export function Questions({ setID }) {
 
     function handleSelect(e) {
         // console.log(e);
-        setTest(e.target.value)
+        // setTest(e.target.value)
     }
 
 
@@ -34,17 +35,27 @@ export function Questions({ setID }) {
         getAllQuestions();
     }, [])
 
+    useEffect (()=>{
+        if(searcnInput === "")
+        {
+            setShowSearch(false);
+            setSearchOutPut([]);
+        }
+    }, [searcnInput])
+
     const getsearch = async () => {
+        const diff = filterDiff ? filterDiff : null ;
+        const lang = filterLang ? filterLang : null ;
         try {
             setLoading(true);
-            const { data } = await axios.post('/api/allposts/search', {searcnInput });
+            const { data } = await axios.post('/api/allposts/search', {searcnInput,diff, lang});
             setLoading(false);
             setSearchOutPut(data);
             setShowSearch(true);
 
             //Test
-            console.log(data)
-            console.log(searcnInput)
+            // console.log(data)
+            // console.log(searcnInput)
 
         } catch (error) {
             console.log(error)
@@ -75,7 +86,7 @@ export function Questions({ setID }) {
             </div>
             <div style={{ float: 'right' }} className="filter">
                 <div className="wrapper mt-2">
-                    <Dropdown onSelect={(e) => setTest(e)}>
+                    <Dropdown onSelect={(e) => setFilterDiff(e)}>
                         <Dropdown.Toggle>
                         Difficulty
                         </Dropdown.Toggle>
@@ -86,7 +97,7 @@ export function Questions({ setID }) {
                         </Dropdown.Menu>
                     </Dropdown>
 
-                    <Dropdown onSelect={(e) => setTest(e)}>
+                    <Dropdown onSelect={(e) => setFilterLang(e)}>
                         <Dropdown.Toggle>
                             Language
                         </Dropdown.Toggle>
@@ -100,7 +111,6 @@ export function Questions({ setID }) {
 
             </div>
             <h1 className="mt-5 mb-3">Leet Code Programming Solutions</h1>
-            <p>{test}</p>
 
             {
                 showSearch === false && (loading ? <Spinner animation="border" role="status" /> :

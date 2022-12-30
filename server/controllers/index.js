@@ -95,13 +95,15 @@ const editPost = async (req, res) => {
 }
 
 const findQuestion =  (req,res) => {
-    // try {
-    //     const question = await Post.find({title:req.body.searcnInput})
-    //     res.json(question)
-    // } catch (error) {
-    //     res.json(error)
-    // }
-    Post.find({title: req.body.searcnInput}, function (err, docs) {
+
+    const title = req.body.searcnInput;
+    const lang = req.body.lang;
+    const diff = req.body.diff;
+
+    const filt_title = title ? {title: req.body.searcnInput} : {};
+    const filt_lang = lang ? {language:req.body.lang} : {};
+    const filt_diff = diff? {difficulty: req.body.diff} : {};
+    Post.find({...filt_title, ...filt_lang, ...filt_diff}, function (err, docs) {
         if(err){
             res.json(err)
         }
