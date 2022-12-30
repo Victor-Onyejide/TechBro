@@ -40,14 +40,23 @@ export function Question({ id }) {
     return (
         <div className="myquestion mt-5">
             {
-                loading ? <Spinner animation="border" role="status" /> : <>
-                    <h1>{question?.title}</h1>
+                loading ? <Spinner animation="border" role="status" /> : <div className="questionScreen">
+                    <div className="header">
+                        <h1>{question?.title}</h1>
+                        <a href={question.url} rel="noreferrer" target="_blank">
+                            <Badge bg="warning" className="leetcode" style={{ color: "black" }}>LeetCode</Badge>
+                        </a>
+                    </div>
+
                     <p className="mt-3">
                         {question?.description}
                     </p>
                     <div className="mysolution mt-5 position-relative">
                         <h2 className="">Solution</h2>
-                        <Badge bg="danger" className="qbadge position-absolute">{question?.language}</Badge>
+                        <div className="qbadge position-absolute">
+
+                            <Badge bg="danger" className="">{question?.language}</Badge>
+                        </div>
                     </div>
                     <div className="code mt-2 position-relative">
                         <i class="copy fas fa-copy"></i>
@@ -83,7 +92,7 @@ export function Question({ id }) {
                         </div>
                     }
 
-                </>
+                </div>
             }
 
 

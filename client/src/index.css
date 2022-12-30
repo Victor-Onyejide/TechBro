@@ -105,3 +105,14 @@ body {
   margin-left: 10px;
   cursor: pointer;
 }
+
+/* Question Screen */
+.questionScreen .header {
+  display: flex;
+}
+
+.questionScreen .leetcode {
+  margin-left: 10px;
+  font-size:  0.7rem; 
+  margin-top: 10px;
+}
