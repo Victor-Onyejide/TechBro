@@ -1,4 +1,7 @@
-{
+{"engines": {
+  "node":"16.16.0",
+  "npm":"9.2.0"
+},
   "dependencies": {
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
@@ -13,7 +16,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
-    "dev": "nodemon server/server.js --ignore client"
+    "dev": "nodemon server/server.js --ignore client",
+    "build": "cd client && npm install && npm run build"
   },
   "author": "Victor Onyejide",
   "license": "ISC",

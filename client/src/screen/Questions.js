@@ -88,7 +88,7 @@ export function Questions({ setID }) {
                 <div className="wrapper mt-2">
                     <Dropdown onSelect={(e) => setFilterDiff(e)}>
                         <Dropdown.Toggle>
-                        Difficulty
+                            {}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
