@@ -106,6 +106,25 @@ body {
   cursor: pointer;
 }
 
+.questions .filter-tag {
+  display: flex;
+  justify-content: center;
+  height: 10px;
+}
+.questions .filter-tag .wrapper span {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.questions .filter-btn {
+  background-color: transparent;
+  color: inherit;
+  border-radius: 20px;
+  border-color: inherit;
+  margin-right: 10px;
+}
+
+
 /* Question Screen */
 .questionScreen .header {
   display: flex;

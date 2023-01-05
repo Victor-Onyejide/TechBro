@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Button, Dropdown, DropdownButton, Spinner } from "react-bootstrap";
 import SearchBar from "../components/SearchBar";
+import FilterTag from "../components/FilterTag";
 
 export function Questions({ setID }) {
     const [questions, setQuesitons] = useState([]);
@@ -35,20 +36,24 @@ export function Questions({ setID }) {
         getAllQuestions();
     }, [])
 
-    useEffect (()=>{
-        if(searcnInput === "")
-        {
+    useEffect(() => {
+        if (searcnInput === "") {
             setShowSearch(false);
             setSearchOutPut([]);
         }
     }, [searcnInput])
 
     const getsearch = async () => {
-        const diff = filterDiff ? filterDiff : null ;
-        const lang = filterLang ? filterLang : null ;
+        const diff = filterDiff ? filterDiff : null;
+        const lang = filterLang ? filterLang : null;
+
+        // Test
+        console.log("Difficulty: ", diff)
+        console.log("Language: ", lang)
+
         try {
             setLoading(true);
-            const { data } = await axios.post('/api/allposts/search', {searcnInput,diff, lang});
+            const { data } = await axios.post('/api/allposts/search', { searcnInput, diff, lang });
             setLoading(false);
             setSearchOutPut(data);
             setShowSearch(true);
@@ -78,38 +83,53 @@ export function Questions({ setID }) {
 
     return (
         <div className="questions">
-            <div className="searchItems">
-                <SearchBar setSearchInput={setSearchInput} />
-                <div>
-                    <i class="fas fa-search " onClick={getsearch}></i>
+            <div className="search-wrapper">
+                <div className="searchItems">
+                    <SearchBar setSearchInput={setSearchInput} />
+                    <div>
+                        <i class="fas fa-search " onClick={getsearch}></i>
+                    </div>
                 </div>
-            </div>
-            <div style={{ float: 'right' }} className="filter">
-                <div className="wrapper mt-2">
-                    <Dropdown onSelect={(e) => setFilterDiff(e)}>
-                        <Dropdown.Toggle>
-                            {}
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Medium">Medium</Dropdown.Item>
-                            <Dropdown.Item eventKey="Hard">Hard</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                <div className="filter-tag mt-3">
+                    <div className="wrapper">
+                        <FilterTag title="Search"/>
+                        <FilterTag title="Easy"/>
+                        <FilterTag title="Javascript"/>
+                        <span className="search-txt">Search</span>
+                        <span className="clear-txt">Clear All</span>
 
-                    <Dropdown onSelect={(e) => setFilterLang(e)}>
-                        <Dropdown.Toggle>
-                            Language
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item eventKey="Python">Python</Dropdown.Item>
-                            <Dropdown.Item eventKey="Javascript">Javascript</Dropdown.Item>
-                            <Dropdown.Item eventKey="C++">C++</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                    </div>
+
+                </div>
+                <div style={{ float: 'right' }} className="filter">
+                    <div className="wrapper mt-2">
+                        <Dropdown onSelect={(e) => setFilterDiff(e)}>
+                            <Dropdown.Toggle>
+                                Difficulty
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
+                                <Dropdown.Item eventKey="Medium">Medium</Dropdown.Item>
+                                <Dropdown.Item eventKey="Hard">Hard</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+
+                        <Dropdown onSelect={(e) => setFilterLang(e)}>
+                            <Dropdown.Toggle>
+                                Language
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item eventKey="Python">Python</Dropdown.Item>
+                                <Dropdown.Item eventKey="Javascript">Javascript</Dropdown.Item>
+                                <Dropdown.Item eventKey="C++">C++</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </div>
+
                 </div>
 
             </div>
+
             <h1 className="mt-5 mb-3">Leet Code Programming Solutions</h1>
 
             {
