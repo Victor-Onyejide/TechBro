@@ -11,9 +11,13 @@ export function Questions({ setID }) {
     const [searcnInput, setSearchInput] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const [searchOutPut, setSearchOutPut] = useState([]);
-    const [filterDiff, setFilterDiff] = useState();
-    const [filterLang, setFilterLang] = useState();
+    const [filterDiff, setFilterDiff] = useState('');
+    const [filterLang, setFilterLang] = useState('');
 
+    const [searchTag, setSearchTag] = useState('');
+    const [difficultyTag, setDifficultyTag] = useState('');
+    const [languageTag, setLanguageTag] = useState('');
+    const [showFilterTags, setShowFilterTags] = useState(false);
 
     async function getAllQuestions() {
         try {
@@ -26,10 +30,10 @@ export function Questions({ setID }) {
         }
     }
 
-    function handleSelect(e) {
-        // console.log(e);
-        // setTest(e.target.value)
-    }
+    // function handleSelect(e) {
+    //     // console.log(e);
+    //     // setTest(e.target.value)
+    // }
 
 
     useEffect(() => {
@@ -43,13 +47,21 @@ export function Questions({ setID }) {
         }
     }, [searcnInput])
 
+    // Use Effect for filter
+
+    useEffect(() => {
+        setSearchTag(searcnInput)
+        setDifficultyTag(filterDiff)
+        setLanguageTag(filterLang)
+    }, [searcnInput, filterDiff, filterLang])
+
     const getsearch = async () => {
         const diff = filterDiff ? filterDiff : null;
         const lang = filterLang ? filterLang : null;
 
         // Test
-        console.log("Difficulty: ", diff)
-        console.log("Language: ", lang)
+        // console.log("Difficulty: ", diff)
+        // console.log("Language: ", lang)
 
         try {
             setLoading(true);
@@ -92,18 +104,24 @@ export function Questions({ setID }) {
                 </div>
                 <div className="filter-tag mt-3">
                     <div className="wrapper">
-                        <FilterTag title="Search"/>
-                        <FilterTag title="Easy"/>
-                        <FilterTag title="Javascript"/>
-                        <span className="search-txt">Search</span>
-                        <span className="clear-txt">Clear All</span>
+                        {
+                            showFilterTags && <>
+
+                            {/* { searchTag !== '' ? <FilterTag title={searchTag} /> : <></> } */}
+                            { difficultyTag !== '' ? <FilterTag title={difficultyTag}  /> : <></> }
+                            { languageTag !== '' ?  <FilterTag title={languageTag} /> : <></> }
+                                <span className="search-txt">Search</span>
+                                <span className="clear-txt">Clear All</span>
+                            </>
+                        }
+
 
                     </div>
 
                 </div>
                 <div style={{ float: 'right' }} className="filter">
                     <div className="wrapper mt-2">
-                        <Dropdown onSelect={(e) => setFilterDiff(e)}>
+                        <Dropdown onSelect={(e) => setFilterDiff(e)} onClick={()=>setShowFilterTags(true)}>
                             <Dropdown.Toggle>
                                 Difficulty
                             </Dropdown.Toggle>
@@ -114,7 +132,7 @@ export function Questions({ setID }) {
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <Dropdown onSelect={(e) => setFilterLang(e)}>
+                        <Dropdown onSelect={(e) => setFilterLang(e)} onClick={()=>setShowFilterTags(true)}>
                             <Dropdown.Toggle>
                                 Language
                             </Dropdown.Toggle>

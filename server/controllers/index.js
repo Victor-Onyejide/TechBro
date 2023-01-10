@@ -100,7 +100,7 @@ const findQuestion =  (req,res) => {
     const lang = req.body.lang;
     const diff = req.body.diff;
 
-    const filt_title = title ? {title: req.body.searcnInput} : {};
+    const filt_title = title ? {title:{$regex: req.body.searcnInput} } : {};
     const filt_lang = lang ? {language:req.body.lang} : {};
     const filt_diff = diff? {difficulty: req.body.diff} : {};
     Post.find({...filt_title, ...filt_lang, ...filt_diff}, function (err, docs) {
