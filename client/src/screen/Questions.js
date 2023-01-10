@@ -14,7 +14,7 @@ export function Questions({ setID }) {
     const [filterDiff, setFilterDiff] = useState('');
     const [filterLang, setFilterLang] = useState('');
 
-    const [searchTag, setSearchTag] = useState('');
+    // const [searchTag, setSearchTag] = useState('');
     const [difficultyTag, setDifficultyTag] = useState('');
     const [languageTag, setLanguageTag] = useState('');
     const [showFilterTags, setShowFilterTags] = useState(false);
@@ -50,7 +50,7 @@ export function Questions({ setID }) {
     // Use Effect for filter
 
     useEffect(() => {
-        setSearchTag(searcnInput)
+        // setSearchTag(searcnInput)
         setDifficultyTag(filterDiff)
         setLanguageTag(filterLang)
     }, [searcnInput, filterDiff, filterLang])
@@ -107,10 +107,20 @@ export function Questions({ setID }) {
                         {
                             showFilterTags && <>
 
-                            {/* { searchTag !== '' ? <FilterTag title={searchTag} /> : <></> } */}
-                            { difficultyTag !== '' ? <FilterTag title={difficultyTag}  /> : <></> }
-                            { languageTag !== '' ?  <FilterTag title={languageTag} /> : <></> }
-                                <span className="search-txt">Search</span>
+                                {/* { searchTag !== '' ? <FilterTag title={searchTag} /> : <></> } */}
+                                {difficultyTag !== '' ? <FilterTag 
+                                    title={difficultyTag}
+                                    setTag={setDifficultyTag}
+                                    setFilter={setFilterDiff}
+                                    
+                                    
+
+                                /> : <></>}
+                                {languageTag !== '' ? <FilterTag 
+                                    title={languageTag}
+                                    setFilter={setFilterLang}
+                                    setTag={setLanguageTag} /> : <></>}
+                                <span className="search-txt" onClick={getsearch}><strong>Search</strong></span>
                                 <span className="clear-txt">Clear All</span>
                             </>
                         }
@@ -121,7 +131,7 @@ export function Questions({ setID }) {
                 </div>
                 <div style={{ float: 'right' }} className="filter">
                     <div className="wrapper mt-2">
-                        <Dropdown onSelect={(e) => setFilterDiff(e)} onClick={()=>setShowFilterTags(true)}>
+                        <Dropdown onSelect={(e) => setFilterDiff(e)} onClick={() => setShowFilterTags(true)}>
                             <Dropdown.Toggle>
                                 Difficulty
                             </Dropdown.Toggle>
@@ -132,14 +142,14 @@ export function Questions({ setID }) {
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <Dropdown onSelect={(e) => setFilterLang(e)} onClick={()=>setShowFilterTags(true)}>
+                        <Dropdown onSelect={(e) => setFilterLang(e)} onClick={() => setShowFilterTags(true)}>
                             <Dropdown.Toggle>
                                 Language
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item eventKey="Python">Python</Dropdown.Item>
                                 <Dropdown.Item eventKey="Javascript">Javascript</Dropdown.Item>
-                                <Dropdown.Item eventKey="C++">C++</Dropdown.Item>
+                                <Dropdown.Item eventKey="Java">Java</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
