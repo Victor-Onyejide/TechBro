@@ -110,7 +110,7 @@ const findQuestion =  (req,res) => {
         else{
             res.json(docs)
         }
-    });
+    }).sort({ createdAt: -1 });
 
     
 } 

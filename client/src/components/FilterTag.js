@@ -1,9 +1,11 @@
-export default function FilterTag({ title, setTag, setFilter }) {
+export default function FilterTag({ title, setTag, setFilter, callSearch, setShowTags }) {
 
     function cancel() {
 
         setFilter('')
         setTag('')
+        callSearch()
+        setShowTags(false);
 
     }
     return (
