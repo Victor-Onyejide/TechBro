@@ -72,9 +72,7 @@ export function Questions({ setID }) {
         }
         else{
             setShowFilterTags(false)
-            if(filterDiff === '' || filterLang===''){
-                getsearch();
-            }
+            getsearch();
         }
     }, [searcnInput, filterDiff, filterLang])
 
