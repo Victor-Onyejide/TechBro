@@ -76,10 +76,6 @@ export function Questions({ setID }) {
         }
     }, [searcnInput, filterDiff, filterLang])
 
-
-
-
-
     const listQuestions = questions.map((question) => <QuestionCard
         difficulty={question.difficulty} language={question.language}
         author={question.author} _id={question._id}
@@ -98,9 +94,9 @@ export function Questions({ setID }) {
             <div className="search-wrapper">
                 <div className="searchItems">
                     <SearchBar setSearchInput={setSearchInput} />
-                    <div>
+                    {/* <div>
                         <i class="fas fa-search " onClick={getsearch}></i>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="filter-tag mt-3">
                     <div className="wrapper">
@@ -123,7 +119,7 @@ export function Questions({ setID }) {
                                     setShowTags={setShowFilterTags}
                                      /> : <></>}
                                 {/* <span className="search-txt" onClick={getsearch}><strong>Search</strong></span> */}
-                                <span className="clear-txt" onClick={clearAll}>Clear All</span>
+                                {/* <span className="clear-txt" onClick={clearAll}>Clear All</span> */}
                             </>
                         }
 

@@ -10,10 +10,12 @@ export function Question({ id }) {
     const [loading, setLoading] = useState(true);
     async function getQuestion() {
         try {
-            const question = await axios.get(`/api/${id}`);
-            setLoading(false)
-            setQuesiton(question.data);
-            console.log(question);
+            if (id !== '') {
+                const question = await axios.get(`/api/${id}`);
+                setLoading(false)
+                setQuesiton(question.data);
+                console.log(question);
+            }
         } catch (error) {
             console.log(error.message)
 
@@ -29,25 +31,28 @@ export function Question({ id }) {
             setMessage(error.message)
             setError(true)
             console.log(error)
-
         }
     }
 
     useEffect(() => {
         getQuestion()
+
     }, [])
 
     return (
         <div className="myquestion mt-5">
             {
                 loading ? <Spinner animation="border" role="status" /> : <div className="questionScreen">
+                    <div className="questions-links">
+                        <Link to="/questions" className="link">Questions/</Link><Link className="link">{question?.title}</Link>
+                    </div>
                     <div className="header">
+
                         <h1>{question?.title}</h1>
                         <a href={question.url} rel="noreferrer" target="_blank">
                             <Badge bg="warning" className="leetcode" style={{ color: "black" }}>LeetCode</Badge>
                         </a>
                     </div>
-
                     <p className="mt-3">
                         {question?.description}
                     </p>
@@ -73,20 +78,15 @@ export function Question({ id }) {
                             </Link>
                             <Button variant="danger" onClick={deletePost}>Delete</Button>
                         </div>
-
                     </div>
                     <Badge className="mt-3 mb-5" style={{ fontSize: "1rem" }}>By {question?.author}</Badge>
-
-
                     {message &&
-
                         <div>
                             <Alert variant="success">{message}</Alert>
                         </div>
                     }
 
                     {error &&
-
                         <div>
                             <Alert variant="danger">{message}</Alert>
                         </div>

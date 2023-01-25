@@ -124,6 +124,10 @@ body {
   margin-right: 10px;
 }
 
+.questions .questions-links .link {
+  font-size: 2rem;
+  
+}
 
 /* Question Screen */
 .questionScreen .header {
