@@ -45,11 +45,11 @@ export function Questions({ setID }) {
         }
     }
 
-    function clearAll () {
-        setFilterDiff('');
-        setFilterLang('');
+    // function clearAll () {
+    //     setFilterDiff('');
+    //     setFilterLang('');
 
-    }
+    // }
 
     useEffect(() => {
         getAllQuestions();
