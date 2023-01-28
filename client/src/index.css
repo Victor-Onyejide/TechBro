@@ -109,7 +109,7 @@ body {
 .questions .filter-tag {
   display: flex;
   justify-content: center;
-  height: 10px;
+  height: 35px;
 }
 .questions .filter-tag .wrapper span {
   margin-left: 10px;
@@ -138,4 +138,24 @@ body {
   margin-left: 10px;
   font-size:  0.7rem; 
   margin-top: 10px;
+}
+
+.questionScreen .fa-arrow-circle-left{
+  color: #d3dbe4;
+  font-size: 2rem;
+}
+
+/* Respnsive Designe */
+
+@media screen and (max-width:430px) {
+  .questions .searchItems {
+    display: block;
+  }
+  .questions .searchItems input[type=text] {
+    width: 100%;
+  }
+
+  .questions .filter-tag {
+    display: block;
+  }
 }

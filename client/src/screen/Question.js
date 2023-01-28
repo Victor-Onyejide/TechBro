@@ -43,8 +43,8 @@ export function Question({ id }) {
         <div className="myquestion mt-5">
             {
                 loading ? <Spinner animation="border" role="status" /> : <div className="questionScreen">
-                    <div className="questions-links">
-                        <Link to="/questions" className="link">Questions/</Link><Link className="link">{question?.title}</Link>
+                    <div className="questions-links mb-3">
+                        <Link to="/questions" ><i class="fas fa-arrow-circle-left"></i></Link>
                     </div>
                     <div className="header">
 
@@ -60,7 +60,7 @@ export function Question({ id }) {
                         <h2 className="">Solution</h2>
                         <div className="qbadge position-absolute">
 
-                            <Badge bg="danger" className="">{question?.language}</Badge>
+                            <Badge bg="danger" >{question?.language}</Badge>
                         </div>
                     </div>
                     <div className="code mt-2 position-relative">
