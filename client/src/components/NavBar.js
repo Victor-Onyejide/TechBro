@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 export function NavBar() {
     return (
-        <NavbarBs sticky='top' className="shadow-sm bg-white mb-3 mt-3">
+        <NavbarBs sticky='top' className="shadow-sm bg-white mb-3">
             <Container>
                 <Nav className=''>
                     <Nav.Link to="/post" className='mynav' as={NavLink}>Post</Nav.Link>

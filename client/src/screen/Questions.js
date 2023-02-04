@@ -29,7 +29,7 @@ export function Questions({ setID }) {
         }
     }
 
-    async function getsearch () {
+    async function getsearch() {
         const diff = filterDiff ? filterDiff : null;
         const lang = filterLang ? filterLang : null;
 
@@ -70,19 +70,21 @@ export function Questions({ setID }) {
             getsearch();
             setShowFilterTags(true)
         }
-        else{
+        else {
             setShowFilterTags(false)
             getsearch();
         }
     }, [searcnInput, filterDiff, filterLang])
 
     const listQuestions = questions.map((question) => <QuestionCard
+        key={question._id}
         difficulty={question.difficulty} language={question.language}
         author={question.author} _id={question._id}
         title={question.title} description={question.description}
         setID={setID}
     />)
     const listSearch = searchOutPut.map((question) => <QuestionCard
+        key={question._id}
         difficulty={question.difficulty} language={question.language}
         author={question.author} _id={question._id}
         title={question.title} description={question.description}
@@ -117,7 +119,7 @@ export function Questions({ setID }) {
                                     setTag={setLanguageTag}
                                     callSearch={getsearch}
                                     setShowTags={setShowFilterTags}
-                                     /> : <></>}
+                                /> : <></>}
                                 {/* <span className="search-txt" onClick={getsearch}><strong>Search</strong></span> */}
                                 {/* <span className="clear-txt" onClick={clearAll}>Clear All</span> */}
                             </>
