@@ -13,10 +13,7 @@ margin-left: 20px;
 margin-top: 10px;
 `
 
-// color: ${props => props.difficulty === 'Easy' ? 'green': 
-// props.difficulty === 'Medium'? 'yellow' :
-// props.difficulty === 'Hard' ? 'red': 'green'
-// };
+
 
 export default function DiffTag({difficulty}){
     return(
