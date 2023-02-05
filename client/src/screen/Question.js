@@ -1,13 +1,16 @@
 import { Alert, Badge, Button, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export function Question({ id }) {
+export function Question() {
     const [question, setQuesiton] = useState();
     const [message, setMessage] = useState();
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
+    const {id} = useParams();
+    console.log("Id",id)
+
     async function getQuestion() {
         try {
             if (id !== '') {
@@ -71,14 +74,14 @@ export function Question({ id }) {
                             </code>
                         </pre>
                     </div>
-                    <div className="position-relative ">
+                    {/* <div className="position-relative ">
                         <div className="editOrDelete mt-2" >
                             <Link to="/question/edit">
                                 <Button variant="success">Edit</Button>
                             </Link>
                             <Button variant="danger" onClick={deletePost}>Delete</Button>
                         </div>
-                    </div>
+                    </div> */}
                     <Badge className="mt-3 mb-5" style={{ fontSize: "1rem" }}>By {question?.author}</Badge>
                     {message &&
                         <div>

@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/post" element={<Post setDes={setDes} setTestCode={setTestCode} />}/>
           <Route path="/questions" element={<Questions setID={setID}/>}/>
-          <Route path="/question" element={<Question  id={id}/>}/>
+          <Route path="/question/:id" element={<Question  id={id}/>}/>
           <Route path="/question/edit" element= {<EditScreen id={id} />} />
         </Routes>
       </Container>
