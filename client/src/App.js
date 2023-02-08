@@ -6,6 +6,8 @@ import { NavBar } from "./components/NavBar";
 import { Questions } from "./screen/Questions";
 import { Question } from "./screen/Question";
 import { EditScreen } from "./screen/EditScreen";
+import LogInScreen from "./screen/LoginScreen";
+import RegisterScreen from "./screen/RegisterScreen";
 
 function App() {
   const [des, setDes] = useState('');
@@ -20,6 +22,8 @@ function App() {
           <Route path="/questions" element={<Questions setID={setID}/>}/>
           <Route path="/question/:id" element={<Question  id={id}/>}/>
           <Route path="/question/edit" element= {<EditScreen id={id} />} />
+          <Route path="/login" element={<LogInScreen />}/>
+          <Route path="/register" element={<RegisterScreen />}/>
         </Routes>
       </Container>
     </>

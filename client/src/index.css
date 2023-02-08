@@ -4,7 +4,24 @@ body {
   box-sizing: border-box;
 
 }
-
+/* Nav Links */
+.nav-links{
+  width: 100%;
+}
+.nav-lins .user-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-links .user-icon .far{
+  font-size: 2rem;
+}
+/* .nav-links .links {
+  display: inline-block;
+} */
+.nav-links .login-icon {
+  float: right;
+}
 .mynav {
   color: #7e8286;
   font-weight: bold;
@@ -12,9 +29,17 @@ body {
 
 }
 
+/* Log In */
+.login-wrapper {
+  margin-right: 15%;
+  margin-left: 15%;
+  border-radius: 20px;
+  padding: 20px 20px;
+  border: 1px solid #d3dbe4 ;
+
+}
+
 /* Question Card */
-
-
 
 .mycard {
   width: 1000px;
@@ -22,16 +47,17 @@ body {
   border-color: white;
 }
 
-.mycard .body-wrapper{
+.mycard .body-wrapper {
   margin-right: 100px;
 }
 
-.mycard .desc{
+.mycard .desc {
   /* max-height: 100px; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .lang {
   position: absolute;
   right: 0;
@@ -60,12 +86,6 @@ body {
 }
 
 .difficulty {
-  /* color: green;
-  margin-left: 20px;
-  margin-top: 10px;
-
-  border: 1px solid green; */
-  /* width: 45px; */
   padding: 0px 5px;
   text-align: center;
   border-radius: 20px;
@@ -89,20 +109,20 @@ body {
 
 }
 
-.questions .searchItems .difficultyBtn{
- /* width: 100%; */
- /* float: ; */
+.questions .searchItems .difficultyBtn {
+  /* width: 100%; */
+  /* float: ; */
   /* display: inline-block; */
   /* float: left; */
 }
 
-.questions .searchItems .language{
+.questions .searchItems .language {
   /* display: inline-block; */
- 
+
 
 }
-.questions .filter
-{
+
+.questions .filter {
   width: 220px;
 }
 
@@ -110,10 +130,11 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 /* .questions .filter {
 
 } */
-.questions .searchItems .fa-search{
+.questions .searchItems .fa-search {
   font-size: 1.5rem;
   margin-left: 10px;
   cursor: pointer;
@@ -124,6 +145,7 @@ body {
   justify-content: center;
   height: 35px;
 }
+
 .questions .filter-tag .wrapper span {
   margin-left: 10px;
   cursor: pointer;
@@ -139,7 +161,7 @@ body {
 
 .questions .questions-links .link {
   font-size: 2rem;
-  
+
 }
 
 /* Question Screen */
@@ -149,11 +171,11 @@ body {
 
 .questionScreen .leetcode {
   margin-left: 10px;
-  font-size:  0.7rem; 
+  font-size: 0.7rem;
   margin-top: 10px;
 }
 
-.questionScreen .fa-arrow-circle-left{
+.questionScreen .fa-arrow-circle-left {
   color: #d3dbe4;
   font-size: 2rem;
 }
@@ -164,6 +186,7 @@ body {
   .questions .searchItems {
     display: block;
   }
+
   .questions .searchItems input[type=text] {
     width: 100%;
   }
