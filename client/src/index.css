@@ -16,9 +16,7 @@ body {
 .nav-links .user-icon .far{
   font-size: 2rem;
 }
-/* .nav-links .links {
-  display: inline-block;
-} */
+
 .nav-links .login-icon {
   float: right;
 }
@@ -109,18 +107,7 @@ body {
 
 }
 
-.questions .searchItems .difficultyBtn {
-  /* width: 100%; */
-  /* float: ; */
-  /* display: inline-block; */
-  /* float: left; */
-}
 
-.questions .searchItems .language {
-  /* display: inline-block; */
-
-
-}
 
 .questions .filter {
   width: 220px;
@@ -131,9 +118,7 @@ body {
   justify-content: space-between;
 }
 
-/* .questions .filter {
 
-} */
 .questions .searchItems .fa-search {
   font-size: 1.5rem;
   margin-left: 10px;

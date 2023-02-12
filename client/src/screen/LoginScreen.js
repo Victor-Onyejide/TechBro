@@ -14,7 +14,7 @@ export default function LogInScreen() {
                 <Form.Control type="text" onChange={(e) => setUser(e.target.value)} />
 
                 <Form.Label>Password:</Form.Label>
-                <Form.Control type="text" onChange={(e) => setPassWord(e.target.value)} />
+                <Form.Control type="password" onChange={(e) => setPassWord(e.target.value)} />
                 <Button type="submit" className="mt-3" style={{width:'100%'}}>LogIn</Button>
                 <Link to="/register" className="mb-5">Not a member?Register</Link>
 

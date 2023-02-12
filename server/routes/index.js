@@ -8,6 +8,6 @@ router.route('/allposts').get(getAllContent);
 router.route('/:id').get(getQuestion).patch(editPost).delete(deletePost);
 router.route('/allposts/search').post(findQuestion);
 
-router.route('/register').post(register);
+router.route('/users/register').post(register);
 
 module.exports = router; 
