@@ -10,7 +10,8 @@ export default function RegisterScreen() {
     const [email, setEmail] = useState('');
     const [confirmPass, setConfirmPass] = useState('')
 
-    const onSubmit = async  (values) => {
+    const onSubmit = async  (e) => {
+        e.preventDefault()
         try {
             const res = await axios.post('/api/users/register', {name, password, email});
             // work on error message
@@ -18,7 +19,6 @@ export default function RegisterScreen() {
                 console.log(res.data.message)
             }else {
                 console.log(res.data.message)
-
             }
         }
         catch (error) {
@@ -26,6 +26,7 @@ export default function RegisterScreen() {
             console.log(error.message)
 
         }
+        // console.log("Submited")
     }
 
     return (
