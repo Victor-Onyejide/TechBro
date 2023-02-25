@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function LogInScreen() {
@@ -13,6 +13,7 @@ export default function LogInScreen() {
             // work on error message
             if(res.success) {
                 console.log(res.data.message)
+                localStorage.setItem("token", res.data)
             }else {
                 console.log(res.data.message)
             }    
