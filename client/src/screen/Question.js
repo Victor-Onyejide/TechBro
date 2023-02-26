@@ -2,6 +2,7 @@ import { Alert, Badge, Button, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function Question() {
     const [question, setQuesiton] = useState();
@@ -9,7 +10,10 @@ export function Question() {
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
     const {id} = useParams();
+    const isUserAuthenticated = useSelector(state => state.auth.isUserAuthenticated);
+
     console.log("Id",id)
+    console.log({isUserAuthenticated});
 
     async function getQuestion() {
         try {
@@ -47,7 +51,7 @@ export function Question() {
             {
                 loading ? <Spinner animation="border" role="status" /> : <div className="questionScreen">
                     <div className="questions-links mb-3">
-                        <Link to="/questions" ><i class="fas fa-arrow-circle-left"></i></Link>
+                        <Link to="/questions" ><i className="fas fa-arrow-circle-left"></i></Link>
                     </div>
                     <div className="header">
 
@@ -67,21 +71,22 @@ export function Question() {
                         </div>
                     </div>
                     <div className="code mt-2 position-relative">
-                        <i class="copy fas fa-copy"></i>
+                        <i className="copy fas fa-copy"></i>
                         <pre>
                             <code>
                                 {question?.solution}
                             </code>
                         </pre>
                     </div>
-                    {/* <div className="position-relative ">
+                    {/* Use REdux */}
+                    <div className="position-relative ">
                         <div className="editOrDelete mt-2" >
                             <Link to="/question/edit">
                                 <Button variant="success">Edit</Button>
                             </Link>
                             <Button variant="danger" onClick={deletePost}>Delete</Button>
                         </div>
-                    </div> */}
+                    </div>
                     <Badge className="mt-3 mb-5" style={{ fontSize: "1rem" }}>By {question?.author}</Badge>
                     {message &&
                         <div>

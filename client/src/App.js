@@ -8,13 +8,15 @@ import { Question } from "./screen/Question";
 import { EditScreen } from "./screen/EditScreen";
 import LogInScreen from "./screen/LoginScreen";
 import RegisterScreen from "./screen/RegisterScreen";
+import {Provider} from 'react-redux';
+import {store} from './store';
 
 function App() {
   const [des, setDes] = useState('');
   const [testCode, setTestCode] = useState ('');
   const [id, setID] = useState ('');
   return (
-    <>
+    <Provider store={store}>
       <Container >
         <NavBar />
         <Routes>
@@ -26,7 +28,7 @@ function App() {
           <Route path="/register" element={<RegisterScreen />}/>
         </Routes>
       </Container>
-    </>
+    </Provider>
   );
 }
 

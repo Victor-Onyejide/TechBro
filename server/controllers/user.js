@@ -60,7 +60,8 @@ const login = async (req, res) => {
             message: "User logged in successfully",
             success: true,
             data: token,
-        })
+            userName: user.name,
+        });
     } catch (error) {
         res.status(500).send({
             message: error.message,

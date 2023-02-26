@@ -97,7 +97,7 @@ export function Questions({ setID }) {
                 <div className="searchItems">
                     <SearchBar setSearchInput={setSearchInput} />
                     {/* <div>
-                        <i class="fas fa-search " onClick={getsearch}></i>
+                        <i className="fas fa-search " onClick={getsearch}></i>
                     </div> */}
                 </div>
                 <div className="filter-tag mt-3">

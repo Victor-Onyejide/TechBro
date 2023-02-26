@@ -12,7 +12,7 @@ export function NavBar() {
                     {/* </div> */}
                     {/* <div className='login-icon'> */}
                         <Nav.Link to="/login" className='mynav'  as={NavLink} >LogIn</Nav.Link>
-                        <Nav.Link className='user-icon'><i class="far fa-user"></i></Nav.Link>
+                        <Nav.Link className='user-icon'><i className="far fa-user"></i></Nav.Link>
                     {/* </div> */}
                 </Nav>
             </Container>
