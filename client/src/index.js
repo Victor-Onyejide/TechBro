@@ -5,8 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from 'react-router-dom';
 import { PagebloxDndProvider } from "pageblox-react";
-import 'pageblox-react/dist/index.css';
 import './index.css';
+import 'pageblox-react/dist/index.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
