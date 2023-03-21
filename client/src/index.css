@@ -7,18 +7,25 @@ body {
 /* Nav Links */
 .nav-links{
   width: 100%;
+  justify-content: space-between;
+}
+.nav-links .links {
+  display: flex;
+  /* justify-content: space-between; */
+
 }
 .nav-lins .user-icon{
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 .nav-links .user-icon .far{
   font-size: 2rem;
 }
 
 .nav-links .login-icon {
-  float: right;
+  /* float: right; */
+  display: flex;
 }
 .mynav {
   color: #7e8286;

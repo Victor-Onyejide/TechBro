@@ -10,6 +10,7 @@ import LogInScreen from "./screen/LoginScreen";
 import RegisterScreen from "./screen/RegisterScreen";
 import { Provider } from 'react-redux';
 import { store } from './store';
+import HomeScreen from "./screen/HomeScreen";
 
 function App() {
   const [des, setDes] = useState('');
@@ -26,6 +27,7 @@ function App() {
             <Route path="/question/edit" element={<EditScreen id={id} />} />
             <Route path="/login" element={<LogInScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
+            <Route path='/' element={<HomeScreen />} />
           </Routes>
         </Container>
       </Provider>

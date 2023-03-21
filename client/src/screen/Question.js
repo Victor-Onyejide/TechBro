@@ -11,6 +11,7 @@ export function Question() {
     const [loading, setLoading] = useState(true);
     const {id} = useParams();
     const isUserAuthenticated = useSelector(state => state.auth.isUserAuthenticated);
+    const userName = useSelector(state => state.auth.userName);
 
     console.log("Id",id)
     console.log({isUserAuthenticated});
@@ -67,7 +68,7 @@ export function Question() {
                         <h2 className="">Solution</h2>
                         <div className="qbadge position-absolute">
 
-                            <Badge bg="danger" >{question?.language}</Badge>
+                            <Badge bg="danger">{question?.language}</Badge>
                         </div>
                     </div>
                     <div className="code mt-2 position-relative">
@@ -78,7 +79,9 @@ export function Question() {
                             </code>
                         </pre>
                     </div>
-                    {/* Use REdux */}
+                    {/* Use REdux */
+                     (userName === question?.author)
+                     &&
                     <div className="position-relative ">
                         <div className="editOrDelete mt-2" >
                             <Link to="/question/edit">
@@ -87,6 +90,7 @@ export function Question() {
                             <Button variant="danger" onClick={deletePost}>Delete</Button>
                         </div>
                     </div>
+                    }
                     <Badge className="mt-3 mb-5" style={{ fontSize: "1rem" }}>By {question?.author}</Badge>
                     {message &&
                         <div>

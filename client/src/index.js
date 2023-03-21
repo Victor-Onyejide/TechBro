@@ -4,19 +4,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from 'react-router-dom';
-import { PagebloxDndProvider } from "pageblox-react";
+// import { PagebloxDndProvider } from "pageblox-react";
 import './index.css';
-import 'pageblox-react/dist/index.css';
+// import 'pageblox-react/dist/index.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PagebloxDndProvider clientId="playgroundKey">
+    {/* <PagebloxDndProvider clientId="playgroundKey"> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </PagebloxDndProvider>
+    {/* </PagebloxDndProvider> */}
   </React.StrictMode>
 );
 
