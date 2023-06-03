@@ -23,7 +23,7 @@ export default function InCarScreen () {
                             <p className="service">Hourly Rate</p>
                             
                             <div className="circle">
-                                <p className="amount"> $40</p>
+                                <p className="amount"> $50</p>
                                 <p className="tag">per hour</p>
                             </div>
 
@@ -47,7 +47,7 @@ export default function InCarScreen () {
                             <p className="service">Full Package</p>
                             
                             <div className="circle">
-                                <p className="amount "> $650</p>
+                                <p className="amount "> $700</p>
                                 <p className="tag">full package</p>
 
                             </div>
