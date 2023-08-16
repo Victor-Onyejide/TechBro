@@ -1,108 +1,74 @@
-// import logo from './logo.svg';
-import React, { Component, useEffect, useState }  from 'react';
+import React, { Component, useEffect, useState } from 'react';
 
 import HomeScreen from './screens/HomeScreen';
 import InCarScreen from './screens/InCarScreen';
 import RoadScreen from './screens/RoadScreen';
-import {Routes, Link, Route} from "react-router-dom";
+import { Routes, Link, Route } from "react-router-dom";
 
 import './App.css';
 
-// const [option, setOption] = useState('');
-
-
-
 function App() {
-
-  const [choice, setChoice] = useState('');
-
-  const toggle =() => {
+  const toggle = () => 
+  {
     const toggleButton = document.getElementsByClassName('menu')[0]
     const navbarLinks = document.getElementsByClassName('nav-links')[0]
-    
-      // toggleButton.addEventListener('click', () => {
-      //   navbarLinks.classList.toggle('active')
-      // }, {once: true})
+    navbarLinks.classList.toggle('active');
+  }
 
-      navbarLinks.classList.toggle('active');
-
-    }
-
-
-
-    function scroll (c) {
-      const element = document.getElementById(c);
-      element.scrollIntoView();
-    }
-
-    // function setAndScroll (option) {
-    //   scroll(option); // to scroll this is where scroll is getting the id
-    // } 
+  function scroll(c) 
+  {
+    const element = document.getElementById(c);
+    element.scrollIntoView();
+  }
 
   return (
-      
-    
     <div className="App">
-      
-        <nav>
-          <Link to="/" className="logo">TWD</Link> 
 
+      <nav>
+        <Link to="/" className="logo">TWD</Link>
 
-          <div  className="menu"  onClick={toggle}>
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </div>
+        <div className="menu" onClick={toggle}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
 
-            <ul className="nav-links">
+        <ul className="nav-links">
+          <div className='dropdown'>
+            <li>
+              <Link to="#" className="serv">
+                Services  <i class="fa fa-caret-down"></i>
+              </Link>
+            </li>
 
-              <div className='dropdown'>
+            <ul className='dropdown-content'>
 
-                
               <li>
-                <Link to="#"  className="serv">
-                  Services  <i class="fa fa-caret-down"></i>
-                </Link>
+                <Link to="/lessons">In-Car Lessons</Link>
               </li>
 
-                <ul className='dropdown-content'>
+              <li>
+                <Link to="/test">Road Test</Link>
+              </li>
 
-                  <li>
-                    <Link to="/lessons">In-Car Lessons</Link>
-                  </li>
-
-                  <li>
-                    <Link to="/test">Road Test</Link>
-                  </li>
-
-                </ul>
-
-              </div> 
-
-              <li><Link to="/#about" className="ab" onClick={() => {scroll('about') }}>About </Link></li>
-              <li><Link to="/#contact" className="b" onClick={() => {scroll('contact')}}>Book Now!</Link></li>
-        
             </ul>
 
-         
-        </nav>
+          </div>
 
-    
+          <li><Link to="/#about" className="ab" onClick={() => { scroll('about') }}>About </Link></li>
+          <li><Link to="/#contact" className="b" onClick={() => { scroll('contact') }}>Book Now!</Link></li>
 
-     
+        </ul>
+      </nav>
 
       <main>
-
         <Routes>
-          <Route path="/" element={<HomeScreen/>} />
-          <Route path="/lessons" element={<InCarScreen/>}/>
-          <Route path="/test" element={<RoadScreen/>}/>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/lessons" element={<InCarScreen />} />
+          <Route path="/test" element={<RoadScreen />} />
         </Routes>
-
-
       </main>
 
-   
       <footer><i class="fa fa-copyright"></i> Triple Wealth Driving School </footer>
     </div>
   );
